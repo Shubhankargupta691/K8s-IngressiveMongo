@@ -86,6 +86,37 @@ minikube service mongo-express-service
 
 This will output a URL. Open the URL in your browser to access Mongo Express.
 
+OR
+
+To access Mongo Express using a custom domain (e.g., app.com), follow these steps to check the Ingress Host and Address:
+Watch the Ingress Resource
+
+Use the following command to watch the Ingress resource and retrieve the Host and Address:
+
+```bash
+kubectl get ingress -n default --watch
+```
+
+Configure  ```/etc/hosts```
+
+Add an entry to your /etc/hosts file that maps app.com to the Ingress controller's external IP:
+
+1. Edit the ```/etc/hosts``` file:
+
+```bash
+sudo nano /etc/hosts
+```
+
+2. Add the following line, replacing <external-ip> with the actual IP address or hostname:
+
+```bash
+<external-ip>   app.com
+```
+
+3. Save and exit the file.
+
+Now, you can access Mongo Express at ```http://app.com```.
+
 ---
 
 ## **Project Structure**
