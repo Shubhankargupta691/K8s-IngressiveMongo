@@ -4,6 +4,10 @@ This project demonstrates how to deploy MongoDB and Mongo Express using Kubernet
 
 ---
 
+![MongoDB and Mongo Express Deployment](./image/db.png)
+
+---
+
 ## **Commands Overview**
 
 ### **1. Apply Kubernetes Manifests**
