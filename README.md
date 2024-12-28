@@ -16,7 +16,20 @@ kubectl apply -f mongo-configmap.yaml
 kubectl apply -f mongo-express.yaml
 ```
 
-### **2. Monitor the Deployment**
+### **2. Install Ingress Controller**
+To enable Ingress in your Kubernetes cluster, install an Ingress controller such as NGINX.
+
+#### **Install NGINX Ingress Controller on Minikube**:
+```bash
+minikube addons enable ingress
+```
+
+#### **Verify the Ingress Controller Installation**:
+```bash
+kubectl get pods -n kube-system | grep ingress
+```
+
+### **3. Monitor the Deployment**
 Use the following commands to monitor the Pods, Services, and Secrets:
 
 #### **Get Pods**
@@ -43,7 +56,7 @@ kubectl get all | grep mongodb
 
 ---
 
-### **3. Debugging Commands**
+### **4. Debugging Commands**
 Use these commands to troubleshoot issues with the deployment:
 
 #### **Describe the MongoDB Pod**
@@ -63,7 +76,7 @@ kubectl logs mongo-express-xxxxxx
 
 ---
 
-### **4. Access the External Service (Minikube)**
+### **5. Access the External Service (Minikube)**
 
 To access the Mongo Express service externally in a Minikube environment, use the following command:
 
@@ -86,8 +99,9 @@ This will output a URL. Open the URL in your browser to access Mongo Express.
 
 ## **Usage**
 1. Apply all manifests using the commands in the correct order.
-2. Monitor and debug the deployment using the provided commands.
-3. Access Mongo Express using the Minikube service URL.
+2. Install the Ingress controller if not already installed.
+3. Monitor and debug the deployment using the provided commands.
+4. Access Mongo Express using the Minikube service URL.
 
 ---
 
